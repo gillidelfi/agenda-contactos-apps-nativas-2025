@@ -1,0 +1,86 @@
+.container-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: auto;
+    margin-top:250px ;
+}
+
+h1{
+    color: rgb(107, 55, 230);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size:24px ;
+    padding: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+form{
+    padding: 0 30px;
+    box-sizing: border-box;
+    align-self: center;
+    margin-top: 20px;
+}
+form.username{
+    position: relative;
+    border-bottom: 2px solid rgb(107, 55, 230);
+    margin: 30px 0;
+    margin-bottom: 50px;
+}
+.username input{
+    width: 100%;
+    padding: 0 10px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid rgb(107, 55, 230);
+    outline: none;
+    background: none;
+    margin-top: -50px;
+    margin-bottom: 10px;
+    color: rgb(179, 176, 186);
+}
+.username label{
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: rgb(99, 98, 101);
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+button{
+    border: 1px solid rgb(107, 55, 230);
+    background-color: rgb(107, 55, 230);
+    color: white;
+    width: 180px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+button:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(107, 55, 230);
+    border: 1px solid rgb(107, 55, 230);
+}
+a{
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+}
+p{
+    color: rgb(99, 98, 101);
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

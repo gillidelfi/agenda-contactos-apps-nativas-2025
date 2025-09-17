@@ -1,0 +1,17 @@
+<li class="contact-list">
+    
+    <span>{{contacto().Firstname}}{{contacto().lastname}}</span>
+    <span>{{contacto().number}}</span>
+    <span>{{contacto().email}}</span>
+    <span>{{contacto().image}}</span>
+    <span>-</span>
+    <span><button (click)="contactsService.deleteContact(contacto().id)" > >Borrar</button></span>
+    <span>
+        @if (contacto() .isFavorite == true ){
+            ⭐️
+        }
+    </span>
+    
+   
+
+</li>

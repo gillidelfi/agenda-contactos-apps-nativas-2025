@@ -1,0 +1,29 @@
+.favourite{
+    font-weight: bold;
+}
+.contact-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.7px solid white;
+    border-radius: 10px;
+    flex-direction: row;
+    margin-bottom: 10px;
+    text-align: space-between;   
+}
+.contact-list > * {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    justify-content: space-between;
+    text-justify: inter-word;
+    width: 100%;
+    margin-left: 70px;
+    text-align: space-between;
+}
+p{
+    margin: auto;
+}
+
+    
