@@ -8,7 +8,20 @@
     justify-content: space-around;
     align-items: center;
 }
-h2{
+a {
+    font-size: 20px ;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    display: block;
+    text-align: center;
+    background-color: white;
+    color: rgb(107, 55, 230);
+    border-radius: 10px;
+    padding: 10px;   
+    width: 1375px;
+    text-decoration: none;
+}
+h2 {
     font-size: 20px ;
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
@@ -53,8 +66,9 @@ label{
     font-size: 16px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
 }
-.favorite{
-    color: gold;
+#favorite{
+    display: inline-block;
+    margin-left: 4rem;
 
 }
 button{

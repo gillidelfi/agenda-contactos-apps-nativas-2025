@@ -8,12 +8,21 @@
 
 </div>
 <ul>
+  @for (contactoIndividual of contactsService.contacts; track $index) {
+    <a [routerLink]="['/contacts',contactoIndividual.id]">
+      <app-contact-list-item [contacto]="contactoIndividual"></app-contact-list-item>
+    </a>
+  }
+ </ul>
+ <a routerLink="/contacts/add">+</a>
+<!--
+<ul>
   @for (contacto of contactsService.contacts; track $index) {
     <app-contact-list-item [contacto]="contacto" ></app-contact-list-item>
 }  
 </ul>
-
 <h2>Nuevo Contacto</h2>
+
 <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm" >
     <div>
       <label for="first-name">Nombre</label>  
@@ -52,4 +61,5 @@
       <button [disabled]="newContactForm.invalid">+</button>
     
 </form>
-<a routerLink="addContact">Añadir contacto</a>
+<a routerLink="/contacts/add">Añadir contacto</a>
+-->

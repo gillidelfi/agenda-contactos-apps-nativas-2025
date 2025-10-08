@@ -5,7 +5,10 @@
     <span>{{contacto().email}}</span>
     <span>{{contacto().image}}</span>
     <span>-</span>
-    <span><button (click)="contactsService.deleteContact(contacto().id)" > >Borrar</button></span>
+    <span><button (click)="contactsService.deleteContact(contacto().id)" > >Borrar</button>
+        <a [routerLink]="['/contacts',contacto().id, 'edit']">Editar </a>
+    
+    </span>
     <span>
         @if (contacto() .isFavorite == true ){
             ⭐️

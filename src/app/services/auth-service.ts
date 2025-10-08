@@ -9,7 +9,15 @@ export class AuthService {
   loggeado:boolean = false;
   router = inject(Router);
   token : null|string = localStorage.getItem("token");
+  revisionTokenInterval: number|undefined;
 
+  ngOnInit(): void {
+    //si tengo sesion iniciada revisa que no este vencida 
+    if(this.token){
+      this.revisionTokenInterval = this.revisionToken()
+    }
+  }
+  
   /**autentica al asuario en el back y nos devuelve el token */
   async login(loginData: LoginData){
     const res = await fetch("https://agenda-api.somee.com/api/authentication/authenticate",
@@ -28,11 +36,22 @@ export class AuthService {
 
   logout(){
     this.token = null;
-    localStorage.removeItem("token");/** gaurda variables en el navegador para que no se borren al cambiar de pagina o dia */
+    localStorage.removeItem("token");/** guarda variables en el navegador para que no se borren al cambiar de pagina o dia */
     this.router.navigate(["/login"]);
-
-
+  }
+  revisionToken(){
+    return setInterval(() => {
+      if(this.token){
+        const base64Url = this.token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        const claims: { exp: number} = JSON.parse(jsonPayload);
+        if(new Date(claims.exp * 1000) < new Date()) {
+          this.logout()
+        }
+      }
+    }, 600)
   }
 }
-
-// 
