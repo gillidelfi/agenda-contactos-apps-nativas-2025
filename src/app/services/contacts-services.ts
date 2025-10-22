@@ -6,8 +6,8 @@ import { Contact, NewContact } from '../interfaces/Contacts';
 @Injectable({
   providedIn: 'root'
 })
-export class ContactsService {
 
+export class ContactsService {
   aleatorio = Math.random();
   authService = inject(AuthService);
 
@@ -33,10 +33,9 @@ export class ContactsService {
         headers:{
           Authorization: "Bearer "+this.authService.token,
         },
-      }
-    )
-    if (!res.ok) return;
+      });
     
+    if (!res.ok) return;
     const resContact: Contact = await res.json();
     return resContact;
 
@@ -44,28 +43,23 @@ export class ContactsService {
 
   /** Crea un contacto */
   async createContact(nuevoContacto:NewContact) {
-    /**async getContacts() {*/
       const res = await fetch("https://agenda-api.somee.com/api/Contacts",
         {
           method: "POST",
-          body: JSON.stringify(nuevoContacto),
-          headers:{
+          headers: {
             Authorization: "Bearer "+this.authService.token,
-            'Content-Type': 'application/json'}
-            
-          },)
-      
-      const resContact: Contact = await res.json()
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(nuevoContacto)
+          });
+
+      if (!res.ok) return;
+      const resContact:Contact = await res.json();
       this.contacts.push(resContact);
       return resContact;
     }
-    /**  const contacto:Contact = {
-      ...nuevoContacto,
-      id: Math.random().toString()
-    }
-    this.contacts.push(contacto);}*/
   
-
+      /** Edita un contacto */
   async editContact(contactoEditado: Contact) { 
     const res = await fetch ("https://agenda-api.somee.com/api/Contacts/"+ "/" + contactoEditado.id,
     {
@@ -77,6 +71,7 @@ export class ContactsService {
       body: JSON.stringify(contactoEditado)
       });
       if (!res.ok) return;
+
       /**edita la lista reemplazando solamente el que editamos  */
       this.contacts = this.contacts.map(contact => {
         if (contact.id === contactoEditado.id) {
@@ -95,15 +90,15 @@ export class ContactsService {
         headers:{
           Authorization: "Bearer "+this.authService.token,
         },
-      }
-    )
+      });
     if (!res.ok) return;
     this.contacts = this.contacts.filter(contact => contact.id !== id);
     return true;
   }
-
+   
+  /** Marca/desmarca un contacto como favorito */
   async setFavourite(id: string | number) { 
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ "/" + id + "favourite",
+    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ "/" + id + "favorite",
       {
         method: "POST",
         headers:{
@@ -119,6 +114,6 @@ this.contacts = this.contacts.map(contact =>{
   return contact;
 });
 return true;
-  }
+ }
 } 
 

@@ -17,9 +17,13 @@ export class RegisterPage {
   router = inject(Router);
 
   async register(form:NgForm){
-    console.log("Registrando",form.value);
     this.errorRegister = false;
-    if(!form.value.email || !form.value.password || !form.value.password2 || form.value.password !== form.value.password2){
+    if(!form.value.email 
+      || !form.value.password 
+      || !form.value.password2 
+      || !form.value.firstName
+      || !form.value.lastName
+      || form.value.password !== form.value.password2){
       this.errorRegister = true;
       return
     }

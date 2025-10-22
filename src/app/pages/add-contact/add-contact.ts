@@ -14,10 +14,9 @@ import { Spinner } from '../../components/spinner/spinner';
   styleUrl: './add-contact.scss'
 })
 export class AddContact implements OnInit{
-createContact(arg0: any) {
-throw new Error('Method not implemented.');
-}
-  authService = inject(AuthService);
+//createContact(arg0: any) {
+//throw new Error('Method not implemented.');
+//}
   contactsService = inject(ContactsService);
   idContacto = input<number>();
   contactoOriginal: Contact | undefined = undefined;
@@ -61,7 +60,7 @@ throw new Error('Method not implemented.');
     // const res = await this.contactsService.createContact(nuevoContacto);
     this.isLoading = true;
     if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto, id: this.idContacto()!.toString()})
+      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!.toString()})
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
@@ -70,7 +69,7 @@ throw new Error('Method not implemented.');
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/contacts",res.id]);
+    this.router.navigate(["/contacts"]);
   }
 
 }

@@ -4,7 +4,7 @@
   } @else {
     <h2>Nuevo contacto</h2>
   }
-  <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm" >
+  <form (ngSubmit)="handleFormSubmission(newContactForm.value)" #newContactForm="ngForm" >
       <div>
         <label for="first-name">Nombre</label>  
         <input id = "first-name" name ="Firstname" type="text" required="true" #firstname="ngModel" minlength="2" maxlength="30" ngModel >
@@ -39,9 +39,11 @@
           <label for="image">URL imagen</label>  
           <input id="image" name="image" type="text" minlength="10" ngModel >
         </div>
+
         @if (errorEnBack){
-          <p classs=" error">Error indeterminado, inetente nuevamente</p>
-        }      
+          <p class="error">Error indeterminado, inetente nuevamente</p>
+        }    
+
         @if(idContacto()){
           <button [disabled]="newContactForm.invalid || isLoading">Editar</button>
         } @else {
@@ -53,3 +55,4 @@
       
   </form>
 </div>
+<app-spinner></app-spinner>

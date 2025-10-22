@@ -16,14 +16,14 @@ export class LoginPage {
   isLoading = false;
 
   async login(form:NgForm){
-    console.log(form)
+    console.log(form.value)
     this.errorLogin = false;
     if(!form.value.email || !form.value.password){
       this.errorLogin = true;
       return
     }
     this.isLoading =  true;
-    await this.authService.login (form.value)
+    await this.authService.login (form.value);
     this.isLoading = false;
     this.errorLogin = true;
   }

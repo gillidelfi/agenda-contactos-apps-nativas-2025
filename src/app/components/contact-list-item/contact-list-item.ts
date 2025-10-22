@@ -14,14 +14,14 @@ export class ContactListItem {
   aleatorio = Math.random();
   contactsService = inject(ContactsService);
   
-  openLogoutModal () {
+  openDeleteModal () {
       Swal.fire({
-        title: "Desea cerrar sesión?",
+        title: "Desea borrar contacto?",
         showDenyButton: true,
         showCancelButton: true,
         showCloseButton: false,
         cancelButtonText: "Cancelar",
-        denyButtonText: `eliminar definitivamebte`
+        denyButtonText: `eliminar definitivamente`
       }).then((result) => {
         if (result.isDenied) { //reviso que haya clickeado en boton rojo: cerra sesion
           this.contactsService.deleteContact(this.contacto().id);
@@ -29,5 +29,4 @@ export class ContactListItem {
       });
     }
   }
-
-
+ 

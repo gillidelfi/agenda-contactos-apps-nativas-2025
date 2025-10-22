@@ -21,27 +21,27 @@ export const routes: Routes = [
     canActivate: [onlyPublicUserGuard]
 
    },
-    {
-        path:"",
-        component:LoggedLayout,
-        canActivateChild: [onlyLoggedUserGuard],
-        children: [
-                {    
-                    path:"",
-                    component:ContactsPage
-                },
-                {   path:"contacts/add",
-                    component: AddContact,
-                },
-                {
-                    path:"contacts/:idContacto",
-                    component:ContactDetailsPage
-                },
-                {
-                    path:"contacts/:idContacto/edit",
-                    component: AddContact,
-                },
-        ]
-    },
+        {
+            path:"",
+            component:LoggedLayout,
+            canActivateChild: [onlyLoggedUserGuard],
+            children: [
+                    {    
+                        path:"contacts",
+                        component:ContactsPage
+                    },
+                    {   path:"contacts/add",
+                        component: AddContact
+                    },
+                    {
+                        path:"contacts/:idContacto",
+                        component:ContactDetailsPage
+                    },
+                    {
+                        path:"contacts/:idContacto/edit",
+                        component: AddContact
+                    },
+            ]
+        },
 
 ];

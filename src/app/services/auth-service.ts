@@ -1,12 +1,11 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginData } from '../interfaces/auth';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  loggeado:boolean = false;
+export class AuthService implements OnInit{
   router = inject(Router);
   token : null|string = localStorage.getItem("token");
   revisionTokenInterval: number|undefined;
@@ -47,6 +46,7 @@ export class AuthService {
         const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
+
         const claims: { exp: number} = JSON.parse(jsonPayload);
         if(new Date(claims.exp * 1000) < new Date()) {
           this.logout()

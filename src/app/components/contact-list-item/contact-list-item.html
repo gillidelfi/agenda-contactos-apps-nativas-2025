@@ -1,11 +1,11 @@
-<li class="contact-list">
+<li class="contact-list" [class.favourite]="contacto().isFavorite===true">
     
     <span>{{contacto().Firstname}}{{contacto().lastname}}</span>
     <span>{{contacto().number}}</span>
     <span>{{contacto().email}}</span>
     <span>{{contacto().image}}</span>
     <span>-</span>
-    <span><button (click)="contactsService.deleteContact(contacto().id)" > >Borrar</button>
+    <span><button (click)="openDeleteModal()" > >Borrar</button>
         <a [routerLink]="['/contacts',contacto().id, 'edit']">Editar </a>
     
     </span>
@@ -14,7 +14,7 @@
             ⭐️
         }
     </span>
-    
-   
-
 </li>
+
+
+

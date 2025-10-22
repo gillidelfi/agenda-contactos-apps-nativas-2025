@@ -2,6 +2,7 @@
   <div id="container" class="card">
     <h1>Registrarse</h1>
     <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      
       <div class="subtitulo">
         <label for="email">Correo electrónico</label>
         <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
@@ -9,18 +10,19 @@
           <p class="error">Debe colocar un correo electrónico.</p>
         }
       </div>
+
       <div class="subtitulo">
         <label for="firstname">Nombre</label>
         <input id="firstname" name="firstname" type="text" id="firstname" ngModel #firstname="ngModel" required="true" autocomplete="firstname">
         @if (firstname.invalid && !firstname.pristine) {
-          <p class="error">Debe colocar un correo electrónico.</p>
+          <p class="error">Este campo es obligatorio</p>
         }
       </div>
       <div class="subtitulo">
         <label for="lastname">Apellido</label>
         <input id="lastname" name="lastname" type="lastname" id="lastname" ngModel #lastname="ngModel" required="true" autocomplete="lastname">
         @if (lastname.invalid && !lastname.pristine) {
-          <p class="error">Debe colocar un correo electrónico.</p>
+          <p class="error">Este campo es obligatorio</p>
         }
       </div>
       <div class="subtitulo">
@@ -38,9 +40,10 @@
         }
       </div>
 
-      <button [disabled]="isLoading">Iniciar sesión</button>
+      <button [disabled]="isLoading || registerForm.invalid">Iniciar sesión</button>
       @if(isLoading) {
-      <app-spinner></app-spinner>}
+      <app-spinner></app-spinner>
+    }
       @if (errorRegister) {
         <p class="error">Error indeterminado, intente nuevamente.</p>
       } 
@@ -48,7 +51,6 @@
       </p>
     </form>
   
-    <a routerLink="/">Home</a>
   </div>
 
 </div>

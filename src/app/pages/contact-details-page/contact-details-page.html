@@ -1,1 +1,21 @@
-<p>contact-details-page works!</p>
+<h1>Datos del contacto</h1>
+<div>
+    @if(contact){
+    <li class="contact-list row" [class.favourite]="contact.isFavorite===true">
+        <span>{{contact.Firstname}} {{contact.lastname}}</span>
+        <span>{{contact.number}}</span>
+        <span>{{contact.email}}</span>
+        <span>-</span>
+        <span>
+            <button (click)="contactsService.deleteContact(contact.id)">Borrar</button>
+            <a [routerLink]="['/contacts',contact.id, 'edit']">Editar</a>
+        </span>
+        <span>
+        @if(contact.isFavorite===true){
+            ⭐ 
+        }
+        </span>
+        
+    </li>
+}
+</div>
