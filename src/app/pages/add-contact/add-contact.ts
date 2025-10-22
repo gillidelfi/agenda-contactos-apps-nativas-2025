@@ -30,14 +30,14 @@ export class AddContact implements OnInit{
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
       // Cambio los valores del formulario
       this.form()?.setValue({
-        firstName: this.contactoOriginal!.Firstname,
-        lastName: this.contactoOriginal!.lastname,
-        address: this.contactoOriginal!.adress,
+        firstName: this.contactoOriginal!.firstName,
+        lastName: this.contactoOriginal!.lastName,
+        address: this.contactoOriginal!.address,
         email: this.contactoOriginal!.email,
         image: this.contactoOriginal!.image,
         number: this.contactoOriginal!.number,
         company: this.contactoOriginal!.company,
-        isFavourite: this.contactoOriginal!.isFavorite
+        isFavorite: this.contactoOriginal!.isFavorite
       })
     }
   }
@@ -47,15 +47,16 @@ export class AddContact implements OnInit{
 
     this.errorEnBack = false;
     const nuevoContacto: NewContact ={
-      Firstname: form.value.firstName,
-      lastname: form.value.lastName,
-      adress: form.value.address,
+      firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      address: form.value.address,
       email: form.value.email,
       image: form.value.image,
       number: form.value.number, 
       company: form.value.company,
       isFavorite: form.value.isFavorite
     }
+    console.log(nuevoContacto);
     let res;
     // const res = await this.contactsService.createContact(nuevoContacto);
     this.isLoading = true;
@@ -64,6 +65,7 @@ export class AddContact implements OnInit{
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
+    console.log(res);
     this.isLoading = false;
     if(!res) {
       this.errorEnBack = true;

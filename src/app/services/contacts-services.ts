@@ -28,7 +28,7 @@ export class ContactsService {
 
   /** Devuelve un contato en particular segun su ID */
   async getContactById(id: string | number) {
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ "/" + id,
+    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ id,
       {
         headers:{
           Authorization: "Bearer "+this.authService.token,
@@ -61,7 +61,7 @@ export class ContactsService {
   
       /** Edita un contacto */
   async editContact(contactoEditado: Contact) { 
-    const res = await fetch ("https://agenda-api.somee.com/api/Contacts/"+ "/" + contactoEditado.id,
+    const res = await fetch ("https://agenda-api.somee.com/api/Contacts/"+ contactoEditado.id,
     {
       method: "PUT",
       headers: {
@@ -70,35 +70,35 @@ export class ContactsService {
       },
       body: JSON.stringify(contactoEditado)
       });
-      if (!res.ok) return;
+    if (!res.ok) return;
 
       /**edita la lista reemplazando solamente el que editamos  */
-      this.contacts = this.contacts.map(contact => {
-        if (contact.id === contactoEditado.id) {
-          return contactoEditado;
-        };
-        return contact;
-      });
-      return contactoEditado;
-    }
+    this.contacts = this.contacts.map(contact => {
+      if (contact.id === contactoEditado.id) {
+        return contactoEditado;
+      };
+      return contact;
+    });
+    return contactoEditado;
+  }
 
   /** Borra un contacto */
   async deleteContact(id:string | number) {
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ "/" + id,
+    const res = await fetch('https://agenda-api.somee.com/api/Contacts/' + id,
       {
         method: "DELETE",
         headers:{
           Authorization: "Bearer "+this.authService.token,
         },
       });
-    if (!res.ok) return;
+    if (!res.ok) return false;
     this.contacts = this.contacts.filter(contact => contact.id !== id);
     return true;
   }
    
   /** Marca/desmarca un contacto como favorito */
   async setFavourite(id: string | number) { 
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts/'+ "/" + id + "favorite",
+    const res = await fetch('https://agenda-api.somee.com/api/Contacts/' + id + "/favorite",
       {
         method: "POST",
         headers:{

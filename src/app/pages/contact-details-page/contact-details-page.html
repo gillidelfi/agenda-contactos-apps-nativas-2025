@@ -1,21 +1,34 @@
-<h1>Datos del contacto</h1>
-<div>
-    @if(contact){
-    <li class="contact-list-row" [class.favourite]="contact.isFavorite===true">
-        <span>{{contact.Firstname}} {{contact.lastname}}</span>
-        <span>{{contact.number}}</span>
-        <span>{{contact.email}}</span>
-        <span>-</span>
-        <span>
-            <button (click)="contactsService.deleteContact(contact.id)">Borrar</button>
-            <a [routerLink]="['/contacts',contact.id, 'edit']">Editar</a>
+<div id="container-details">
+    <a  class="return-link" routerLink= "/"> ← </a>
+    <h1>  Datos del contacto</h1>
+    <img
+      [src]= 'contact?.image' 
+      alt="Foto de contacto"/>
+    @if (contact) {
+      <div class="contact-card" [class.favourite]="contact.isFavorite === true">
+        <div class="contact-info">
+          <span class="details name">
+            {{ contact.firstName }} {{ contact.lastName }}
+          </span>
+          @if (contact.isFavorite === true) {
+            <span class="favorite">⭐</span>
+          }
+          <span class="details number">
+            {{ contact.number }}
+          </span>
+        </div>
+        <span class="details email">
+          {{ contact.email }}
         </span>
-        <span>
-        @if(contact.isFavorite===true){
-            ⭐ 
-        }
-        </span>
-        
-    </li>
-}
-</div>
+        <div class="buttons">
+          @if (contact.isFavorite === true) {
+            <button (click)="toggleFavorite()">Desmarcar como favorito</button>
+          } @else {
+            <button (click)="toggleFavorite()">Marcar como favorito</button>
+          }
+          <button (click)="deleteContact(contact.id)">Borrar</button>
+          <a class="edit-link" [routerLink]="['/contacts', contact.id, 'edit']">Editar</a>
+        </div>
+      </div>
+    }
+  </div>

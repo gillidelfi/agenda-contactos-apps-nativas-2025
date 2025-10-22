@@ -1,8 +1,8 @@
 export interface Contact {
     id:string
-    Firstname:string,
-    lastname:string,
-    adress:string
+    firstName:string,
+    lastName:string,
+    address:string
     email:string, 
     image:string,
     number: string,

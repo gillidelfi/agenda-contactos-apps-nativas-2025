@@ -1,87 +1,130 @@
-.contact-list-row{
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    text-align: space-between;
+#container-details {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-}
-a {
-    font-size: 20px ;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-    display: block;
-    text-align: center;
     background-color: white;
-    color: gray;
-    border-radius: 10px;
-    padding: 10px;   
-    width: 1375px;
-    text-decoration: none;
-}
-h2 {
-    font-size: 20px ;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-    text-align: center;
-    background-color: white;
-    color: gray;
-    border-radius: 10px;
-    padding: 10px;   
-}
-li {
-    display: grid;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    padding: 32px;
     border-radius: 16px;
-    background-color: white;
-    color: gray;
-    width: 400px;
-    padding: 20px;
-    box-shadow: 0 4px 8px ;
-    margin: auto;
-    margin-top: 20px;
-    height: 600px;
-}
-input{
-    width: 100%;
-    padding: 0 10px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    border-bottom: 1px solid rgb(107, 55, 230);
-    outline: none;
-    background: none;
-    margin-top: -50px;
+    margin: 32px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .return-link {
+    align-self: flex-start;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(107, 55, 230);
+    text-decoration: none;
     margin-bottom: 10px;
-    color: rgb(179, 176, 186);
 }
-label{
-    top: 50%;
-    left: 5px;
-    color: rgb(99, 98, 101);
-    font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
-}
-#favorite{
-    display: inline-block;
-    margin-left: 4rem;
-
-}
-button{
-    border: 1px solid ;
+  
+  .return-link:hover {
+    color: rgb(60, 30, 160);
+    cursor: pointer;
+  }
+  
+  h1 {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    margin: 10px 0 20px;
+    text-align: center;
+    color: rgb(107, 55, 230);
+  }
+  
+  img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .contact-card.favourite {
+    border: 2px solid rgb(107, 55, 230);
+    background-color: #f5f0ff;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+  }
+  
+  .favorite {
+    font-size: 1.3rem;
+    color: gold;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  button {
+    border: none;
+    border-radius: 30px;
     background-color: rgb(99, 98, 101);
     color: white;
-    width: 150px;
-    height: 30px;
-    border-radius: 40px;
-    justify-self: right;
-}
-button:hover{
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .edit-link {
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(99, 98, 101);
+    color: white;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover,
+  .edit-link:hover {
     background-color: rgb(107, 55, 230);
-    border: 1px solid rgb(107, 55, 230);
     cursor: pointer;
-}
+  }
+  
+  .edit-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .email {
+    margin-top: 5px;
+    font-size: 15px;
+    color: #555;
+  }

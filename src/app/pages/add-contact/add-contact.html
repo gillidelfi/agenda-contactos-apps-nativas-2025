@@ -4,16 +4,16 @@
   } @else {
     <h2>Nuevo contacto</h2>
   }
-  <form (ngSubmit)="handleFormSubmission(newContactForm.value)" #newContactForm="ngForm" >
+  <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm" >
       <div>
         <label for="first-name">Nombre</label>  
-        <input id = "first-name" name ="Firstname" type="text" required="true" #firstname="ngModel" minlength="2" maxlength="30" ngModel >
+        <input id = "first-name" name ="firstName" type="text" required="true" #firstname="ngModel" minlength="2" maxlength="30" ngModel >
         @if (firstname.dirty && firstname.invalid ) {
              <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>}
       </div>
       <div>
           <label for="last-name">Apellido</label>  
-          <input id= "last-name" name= "lastname" type="text" ngModel >
+          <input id= "last-name" name= "lastName" type="text" ngModel >
         </div>
         <div>
           <label for="phone">Telefono</label>  
@@ -28,8 +28,8 @@
           <input id="favorite" name="isFavorite" type="checkbox" ngModel >
         </div>  
         <div>
-          <label for="adress">Direccion</label>  
-          <input id="adress" name="adress" type="text" minlength="5" ngModel >
+          <label for="address">Direccion</label>  
+          <input id="adress" name="address" type="text" minlength="5" ngModel >
         </div>    
         <div>
           <label for="company">Compañía</label>  
