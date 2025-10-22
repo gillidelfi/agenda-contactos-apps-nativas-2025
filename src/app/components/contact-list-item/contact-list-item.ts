@@ -16,7 +16,7 @@ export class ContactListItem {
   
   openDeleteModal () {
       Swal.fire({
-        title: "Desea borrar contacto?",
+        title: "Desea borrar el contacto?",
         showDenyButton: true,
         showCancelButton: true,
         showCloseButton: false,

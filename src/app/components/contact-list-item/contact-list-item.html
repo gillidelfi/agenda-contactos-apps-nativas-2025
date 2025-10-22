@@ -5,7 +5,8 @@
     <span>{{contacto().email}}</span>
     <span>{{contacto().image}}</span>
     <span>-</span>
-    <span><button (click)="openDeleteModal()" > >Borrar</button>
+    <span>
+        <button (click)="openDeleteModal()">Borrar</button>
         <a [routerLink]="['/contacts',contacto().id, 'edit']">Editar </a>
     
     </span>

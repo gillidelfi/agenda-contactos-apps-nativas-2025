@@ -50,9 +50,8 @@
           <button [disabled]="newContactForm.invalid || isLoading">Crear</button>
         }
         @if(isLoading){
-          <app-spinner></app-spinner>
+          <app-spinner class="loader"></app-spinner>
         }
       
   </form>
 </div>
-<app-spinner></app-spinner>

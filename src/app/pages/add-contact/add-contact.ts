@@ -60,7 +60,7 @@ export class AddContact implements OnInit{
     // const res = await this.contactsService.createContact(nuevoContacto);
     this.isLoading = true;
     if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!.toString()})
+      res = await this.contactsService.editContact({...nuevoContacto, id: this.idContacto()!.toString()})
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
@@ -69,7 +69,7 @@ export class AddContact implements OnInit{
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/contacts"]);
+    this.router.navigate(["/contacts", res.id]);
   }
 
 }

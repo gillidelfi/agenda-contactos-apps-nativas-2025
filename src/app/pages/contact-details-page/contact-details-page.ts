@@ -6,18 +6,16 @@ import { ContactsService } from '../../services/contacts-services';
   selector: 'app-contact-details-page',
   imports: [RouterModule],
   templateUrl: './contact-details-page.html',
-  styleUrl: './contact-details-page.scss'
+  styleUrls: ['./contact-details-page.scss']
 })
 export class ContactDetailsPage {
   contactsService = inject (ContactsService)
 
-  id = input<number>(); // Ensure input is typed correctly
-
+  id = input<number>();   
   contact: Contact | undefined = undefined;
-contacto: any;
 
   async ngOnInit(){
     console.log()
-    this.contact = await this.contactsService.getContactById(Number(this.id()))
+    this.contact = await this.contactsService.getContactById(this.id()!)
   }
 }

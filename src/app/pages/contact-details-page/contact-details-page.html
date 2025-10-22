@@ -1,7 +1,7 @@
 <h1>Datos del contacto</h1>
 <div>
     @if(contact){
-    <li class="contact-list row" [class.favourite]="contact.isFavorite===true">
+    <li class="contact-list-row" [class.favourite]="contact.isFavorite===true">
         <span>{{contact.Firstname}} {{contact.lastname}}</span>
         <span>{{contact.number}}</span>
         <span>{{contact.email}}</span>
